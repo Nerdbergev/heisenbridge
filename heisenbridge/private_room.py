@@ -776,7 +776,7 @@ class PrivateRoom(Room):
 
         for i, message in enumerate(messages):
             if self.max_lines > 0 and i == self.max_lines - 1 and len(messages) > self.max_lines:
-                self.react(event.event_id, "\u2702")  # scissors
+            #    self.react(event.event_id, "\u2702")  # scissors
 
                 if self.use_pastebin:
                     content_uri = await self.az.intent.upload_media(
@@ -809,8 +809,8 @@ class PrivateRoom(Room):
             func(self.name, message)
 
         # show number of lines sent to IRC
-        if self.max_lines == 0 and len(messages) > 1:
-            self.react(event.event_id, f"\u2702 {len(messages)} lines")
+        #if self.max_lines == 0 and len(messages) > 1:
+        #    self.react(event.event_id, f"\u2702 {len(messages)} lines")
 
     async def on_mx_message(self, event) -> None:
         if event.sender != self.user_id:
