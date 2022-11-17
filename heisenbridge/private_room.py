@@ -793,7 +793,7 @@ class PrivateRoom(Room):
                             self.name,
                             f"... long message truncated: {self.serv.mxc_to_url(str(content_uri))} ({len(messages)} lines)",
                         )
-                    self.react(event.event_id, "\U0001f4dd")  # memo
+                    #self.react(event.event_id, "\U0001f4dd")  # memo
 
                     self.media.append([event.event_id, str(content_uri)])
                     await self.save()
@@ -824,7 +824,7 @@ class PrivateRoom(Room):
             await self._send_message(event, self.network.conn.action)
         elif str(event.content.msgtype) in ["m.image", "m.file", "m.audio", "m.video"]:
             self.network.conn.privmsg(self.name, self.serv.mxc_to_url(event.content.url, event.content.body))
-            self.react(event.event_id, "\U0001F517")  # link
+            #self.react(event.event_id, "\U0001F517")  # link
             self.media.append([event.event_id, event.content.url])
             await self.save()
         elif str(event.content.msgtype) == "m.text":

@@ -245,7 +245,7 @@ class PlumbedRoom(ChannelRoom):
             )
             await self.relay_message(media_event, self.network.conn.privmsg, sender)
 
-            self.react(event.event_id, "\U0001F517")  # link
+            #self.react(event.event_id, "\U0001F517")  # link
             self.media.append([event.event_id, event.content.url])
             await self.save()
         elif event.content.msgtype == MessageType.EMOTE:
